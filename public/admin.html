@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RSVP Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="admin-page">
+      <section class="admin-section" aria-label="RSVP tracking">
+        <div class="admin-header">
+          <div>
+            <p>Private guest tracking</p>
+            <h2>Responses</h2>
+          </div>
+          <div class="admin-header-buttons">
+            <button id="refreshAdmin" type="button">Refresh</button>
+            <button id="downloadCsv" type="button">Download CSV</button>
+          </div>
+        </div>
+
+        <form class="admin-login" id="adminLogin">
+          <label>
+            <span>Admin key</span>
+            <input id="adminKey" name="adminKey" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="send-button" type="submit">Unlock</button>
+          <p class="form-message" id="adminMessage" role="status"></p>
+        </form>
+
+        <div class="admin-content" id="adminContent" hidden>
+          <div class="stats">
+            <div><strong id="acceptCount">0</strong><span>Coming</span></div>
+            <div><strong id="declineCount">0</strong><span>Not coming</span></div>
+            <div><strong id="plusOneCount">0</strong><span>Plus ones</span></div>
+          </div>
+          <div class="response-list" id="responseList"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/admin.js"></script>
+  </body>
+</html>

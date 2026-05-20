@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ahmed & Christine RSVP</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <main class="page-shell">
+      <section class="invite-stage" aria-label="Engagement invitation">
+        <div class="envelope-stage">
+          <button
+            class="envelope"
+            id="envelope"
+            type="button"
+            aria-label="Open invitation"
+          >
+            <!-- Back rectangle of envelope (behind everything) -->
+            <span class="env-back" aria-hidden="true"></span>
+
+            <!-- The invitation card, hidden inside, slides up on open -->
+            <span class="env-card" aria-hidden="true">
+              <img
+                src="/images/invitation_7pm.png"
+                alt=""
+                class="env-card-img"
+              />
+            </span>
+
+            <!-- Front pocket (V-shape, in front of card so card hides inside) -->
+            <span class="env-pocket" aria-hidden="true"></span>
+
+            <!-- Flap: contains both outer face and inner lining; rotates open -->
+            <span class="env-flap" aria-hidden="true">
+              <span class="env-flap-front"></span>
+              <span class="env-flap-lining"></span>
+            </span>
+
+            <!-- Confetti dots scattered on stage (decorative) -->
+            <span class="confetti" aria-hidden="true"></span>
+
+            <!-- "Tap to open" hint -->
+            <span class="tap-hint" id="tapHint">Tap to open</span>
+          </button>
+        </div>
+
+        <div class="scroll-cue" id="scrollCue" aria-hidden="true">
+          RSVP below
+        </div>
+      </section>
+
+      <section class="rsvp-section" id="rsvp">
+        <div class="rsvp-art">
+          <div class="reply-by">Reply by July 15</div>
+
+          <h2>RSVP</h2>
+
+          <div class="divider">
+            <span></span>
+            <b>♥</b>
+            <span></span>
+          </div>
+
+          <form id="rsvpForm">
+            <label>
+              <span>Your name</span>
+              <input
+                name="name"
+                autocomplete="name"
+                placeholder="First and last name"
+                required
+              />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="So we can stay in touch"
+                required
+              />
+            </label>
+
+            <fieldset>
+              <legend>Will you be attending?</legend>
+
+              <div class="option-grid">
+                <label for="attendanceAccept">
+                  <input
+                    id="attendanceAccept"
+                    type="radio"
+                    name="attendance"
+                    value="accept"
+                    required
+                  />
+                  <span>Joyfully accept</span>
+                </label>
+
+                <label for="attendanceDecline">
+                  <input
+                    id="attendanceDecline"
+                    type="radio"
+                    name="attendance"
+                    value="decline"
+                    required
+                  />
+                  <span>Regretfully decline</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset id="plusOneFieldset">
+              <legend>Will you bring a plus one?</legend>
+
+              <div class="option-grid">
+                <label for="plusOneYes">
+                  <input
+                    id="plusOneYes"
+                    type="radio"
+                    name="plusOne"
+                    value="yes"
+                  />
+                  <span>Yes</span>
+                </label>
+
+                <label for="plusOneNo">
+                  <input
+                    id="plusOneNo"
+                    type="radio"
+                    name="plusOne"
+                    value="no"
+                  />
+                  <span>No</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <label id="plusOneDetails" hidden>
+              <span>Plus-one name</span>
+              <input
+                name="plusOneName"
+                autocomplete="name"
+                placeholder="Their first and last name"
+              />
+            </label>
+
+            <label id="dietaryField">
+              <span>Dietary restrictions</span>
+              <textarea
+                name="dietaryRestrictions"
+                rows="3"
+                placeholder="Allergies, restrictions, or meal notes"
+              ></textarea>
+            </label>
+
+            <label>
+              <span>A note for the couple</span>
+              <textarea
+                name="note"
+                rows="4"
+                placeholder="Share a wish, a memory, or a song request..."
+              ></textarea>
+            </label>
+
+            <button class="send-button" type="submit">Send reply</button>
+
+            <p class="form-message" id="formMessage" role="status"></p>
+          </form>
+
+          <div class="thanks-panel" id="thanksPanel" hidden>
+            <div class="reply-by">With Gratitude</div>
+            <h2>Thank You</h2>
+            <div class="divider">
+              <span></span>
+              <b>♥</b>
+              <span></span>
+            </div>
+            <p class="thanks-text" id="thanksText"></p>
+            <div class="divider" style="margin-top: 2rem;">
+              <span></span>
+              <b>♥</b>
+              <span></span>
+            </div>
+            <div class="reply-by" style="margin: 0;">Ahmed &amp; Christine</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

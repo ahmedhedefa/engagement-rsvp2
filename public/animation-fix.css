@@ -1,0 +1,90 @@
+.envelope {
+  overflow: visible;
+}
+
+.env-card {
+  z-index: 2;
+  transform: translateY(0) scale(0.98);
+  transition: none;
+}
+
+.envelope.is-open .env-card {
+  animation: cardRevealStable 1.65s 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.envelope.is-card-visible .env-card {
+  z-index: 8;
+}
+
+.env-pocket {
+  transform: none;
+}
+
+.env-flap {
+  transform: translateY(0) scaleY(1);
+  transform-origin: top center;
+  transform-style: flat;
+  transition: none;
+}
+
+.envelope.is-open .env-flap {
+  animation: flapOpenStable 1.05s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.envelope.is-flap-behind .env-flap {
+  z-index: 1;
+}
+
+@keyframes flapOpenStable {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    z-index: 6;
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-36%) scaleY(0.18);
+    z-index: 6;
+  }
+  56% {
+    z-index: 1;
+  }
+  100% {
+    opacity: 0.9;
+    transform: translateY(-42%) scaleY(0.12);
+    z-index: 1;
+  }
+}
+
+@keyframes cardRevealStable {
+  0% {
+    transform: translateY(0) scale(0.98);
+    z-index: 2;
+  }
+  30% {
+    transform: translateY(-35%) scale(0.99);
+    z-index: 2;
+  }
+  31% {
+    z-index: 8;
+  }
+  100% {
+    transform: translateY(-108%) scale(1.03);
+    z-index: 8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope.is-open .env-card {
+    animation: none;
+    transform: translateY(-108%) scale(1.03);
+    z-index: 8;
+  }
+
+  .envelope.is-open .env-flap {
+    animation: none;
+    opacity: 0.9;
+    transform: translateY(-42%) scaleY(0.12);
+    z-index: 1;
+  }
+}

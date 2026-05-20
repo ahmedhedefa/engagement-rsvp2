@@ -73,7 +73,7 @@
     z-index: 8;
   }
   100% {
-    transform: translateY(-108%) scale(1.03);
+    transform: translateY(-72%) scale(1.03);
     z-index: 8;
   }
 }
@@ -81,7 +81,7 @@
 @media (prefers-reduced-motion: reduce) {
   .envelope.is-open .env-card {
     animation: none;
-    transform: translateY(-108%) scale(1.03);
+    transform: translateY(-72%) scale(1.03);
     z-index: 8;
   }
 
